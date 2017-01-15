@@ -1,25 +1,34 @@
-class PostAddFormComponent {
-    constructor(data) {
-        this.template = document.getElementById('template-add-form-component').innerHTML;
-        this.render(data);
+(function() {
+    class PostAddFormComponent {
+        constructor(data) {
+            this.template = document.getElementById('template-add-form-component').innerHTML;
+            this.render(data);
+        }
+
+        render (data) {
+            let $templateDestination = document.getElementById('postInputDestination');
+            let parser = new DOMParser();
+
+            //mustache parse
+            let mustachedTemplate = Mustache.render(this.template, data);
+
+            //creating element from mustached template
+            let $templateElement = parser.parseFromString(mustachedTemplate, "text/html");
+
+            //appending element to DOM
+            $templateDestination.appendChild($templateElement.getElementById('postInput'));
+
+        }
     }
 
-    render (data) {
-        let $templateDestination = document.getElementById('postInputDestination');
-        let parser = new DOMParser();
-
-        //mustache parse
-        let mustachedTemplate = Mustache.render(this.template, data);
-
-        //creating element from mustached template
-        let $templateElement = parser.parseFromString(mustachedTemplate, "text/html");
-
-        //appending element to DOM
-        $templateDestination.appendChild($templateElement.getElementById('postInput'));
-
-    }
-}
+    //exports
+    window.blog.components.PostAddFormComponent = PostAddFormComponent;
 
 
-let postInput = new PostAddFormComponent({});
+    // let postInput = new PostAddFormComponent({});
+})();
+
+
+
+
 

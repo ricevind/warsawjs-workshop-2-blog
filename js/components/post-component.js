@@ -4,8 +4,8 @@ class PostComponent {
     }
 
     render () {
-        let templateDestination = document.getElementById('postDestination');
-        templateDestination.innerHTML = this.template   ;
+        let $templateDestination = document.getElementById('postDestination');
+        $templateDestination.innerHTML = this.template   ;
     }
 }
 

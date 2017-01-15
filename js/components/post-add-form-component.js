@@ -4,8 +4,8 @@ class PostAddFormComponent {
 }
 
     render () {
-        let templateDestination = document.getElementById('postInputDestination');
-        templateDestination.innerHTML = this.template;
+        let $templateDestination = document.getElementById('postInputDestination');
+        $templateDestination.innerHTML = this.template;
     }
 }
 

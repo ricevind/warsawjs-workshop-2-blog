@@ -11,7 +11,7 @@
 
             //mustache parse
             let mustachedTemplate = Mustache.render(this.template, data);
-
+            console.log(mustachedTemplate);
             //creating element from mustached template
             let $templateElement = parser.parseFromString(mustachedTemplate, "text/html");
 

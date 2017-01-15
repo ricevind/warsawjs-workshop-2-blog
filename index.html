@@ -10,57 +10,57 @@
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="css/bootstrap.css">
-        <!--<link rel="stylesheet" href="css/bootstrap-material-design.css">-->
-        <!--<link rel="stylesheet" href="css/ripples.css">-->
+        <link rel="stylesheet" href="css/bootstrap-material-design.css">
+        <link rel="stylesheet" href="css/ripples.css">
         <link rel="stylesheet" href="css/main.css">
-        <!--<script src="js/vendor/modernizr-2.8.3.min.js"></script>-->
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
 
         <script type="text/html" id="template-add-form-component">
             <form id="postInput">
-                <div>
-                    <label for="postTitle">Tytul</label>
-                    <input type="text" id="postTitleInput">
+                <div class="form-group label-floating is-empty">
+                    <label  class="control-label" for="postTitle">Tytul</label>
+                    <input class="form-control" type="text" id="postTitleInput" name="postTitleInput">
+                </div>
+                <div class="form-group label-floating is-empty">
+                    <label class="control-label" for="postBody">Body</label>
+                    <input class="form-control" type="text" id="postBodyInput" name="postBodyInput">
                 </div>
                 <div>
-                    <label for="postBody">Body</label>
-                    <input type="text" id="postBodyInput">
-                </div>
-                <div>
-                    <input type="submit" value="Submit">
+                    <input class="btn btn-raised btn-primary" type="submit" value="Submit">
                 </div>
             </form>
         </script>
 
         <script type="text/html" id="template-post-component">
-            <div id="post">
-                <h1 id="postTitle">Post Title</h1>
-                <div id="postBody">
-                    Moj post
+            <div class="panel panel-info" id="post">
+                <div class="panel-heading"  id="postTitle">{{postTitleInput}}</div>
+                <div class="panel-body" id="postBody">
+                    {{postBodyInput}}
                 </div>
             </div>
         </script>
 
-        <section class="container marginTop">
+        <section class="container-fluid marginTop">
                 <div class="row">
-                    <div class="col-sm-offset-3 col-md-6 col-sm-6 marginTop" id="postInputDestination">
-                        <!-- Post Input -->
+                    <div class="col-md-2  marginTop" >
+                            <div id="postInputDestination"></div>
                     </div>
-                    <div class="row">
-                        <div class="col-sm-offset-3 col-md-6 col-sm-6 marginTop" id="postDestination">
-                            <!-- Post Body-->
-                        </div>
+                    <div class=" col-md-10  marginTop" >
+                        <div id="postDestination"></div>
                     </div>
                 </div>
+
         </section>
 
         <!-- <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script> -->
-        <!--<script src="js/vendor/jquery-3.1.1.js"></script>-->
-        <!--<script src="js/vendor/bootstrap.js"></script>-->
-        <!--<script src="js/vendor/material.js"></script>-->
-        <!--<script src="js/vendor/ripples.js"></script>-->
+        <script src="js/vendor/jquery-3.1.1.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/material.js"></script>
+        <script src="js/vendor/ripples.js"></script>
         <script src="node_modules/mustache/mustache.js"></script>
+        <script src="node_modules/super-event-emitter/dist/super-event-emitter.js"></script>
 
         <script src="js/blog.js"></script>
         <script src="js/components/post-component.js"></script>
@@ -69,9 +69,9 @@
         <script src="js/models/post-model.js"></script>
         <script src="js/controllers/post-controller.js"></script>
         <script src="js/main.js"></script>
-        <!--<script>-->
-                <!--$.material.init();-->
-        <!--</script>-->
+        <script>
+                $.material.init();
+        </script>
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 
     </body>

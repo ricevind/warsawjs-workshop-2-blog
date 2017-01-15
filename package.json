@@ -1,1 +1,6 @@
-{}
+{
+  "devDependencies": {
+    "mustache": "^2.3.0",
+    "super-event-emitter": "^4.1.4"
+  }
+}

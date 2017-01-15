@@ -1,7 +1,13 @@
 (function() {
+
+
+
+
     class PostAddFormComponent {
         constructor(data) {
             this.template = document.getElementById('template-add-form-component').innerHTML;
+            this.runtime = window.blog.runtime;
+
             this.render(data);
         }
 
@@ -10,13 +16,25 @@
             let parser = new DOMParser();
 
             //mustache parse
+            console.log(data)
             let mustachedTemplate = Mustache.render(this.template, data);
 
             //creating element from mustached template
             let $templateElement = parser.parseFromString(mustachedTemplate, "text/html");
 
             //appending element to DOM
-            $templateDestination.appendChild($templateElement.getElementById('postInput'));
+            let $postInput = $templateElement.getElementById('postInput');
+            $postInput.addEventListener('submit', (e)=> {
+                e.preventDefault();
+                let dataForm = new FormData($postInput);
+                let data = {};
+                for (let [name, value] of dataForm){
+                    data[name] = value;
+                }
+                $postInput.reset();
+                this.runtime.trigger('formSent', {payload:data});
+            });
+            $templateDestination.appendChild($postInput);
 
         }
     }

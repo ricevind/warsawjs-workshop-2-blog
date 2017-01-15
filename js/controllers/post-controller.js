@@ -4,14 +4,19 @@
     let PostListModel = window.blog.models.PostListModel;
     let PostModel = window.blog.models.PostModel;
 
+    let runtime = window.blog.runtime;
+
+
+
     class PostController {
         constructor(){
             //components
-            this.postComponent = new PostComponent({});
             this.postAddComponet = new PostAddFormComponent({});
             //models
             this.postListModel = new PostListModel();
             this.postModel = new PostModel();
+
+            runtime.on('formSent', (data)=>{new PostComponent(data.payload)});
         }
     }
 

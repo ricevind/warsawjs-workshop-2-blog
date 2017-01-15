@@ -16,7 +16,7 @@
             let parser = new DOMParser();
 
             //mustache parse
-            console.log(data)
+            // console.log(data)
             let mustachedTemplate = Mustache.render(this.template, data);
 
             //creating element from mustached template
@@ -24,6 +24,7 @@
 
             //appending element to DOM
             let $postInput = $templateElement.getElementById('postInput');
+
             $postInput.addEventListener('submit', (e)=> {
                 e.preventDefault();
                 let dataForm = new FormData($postInput);
@@ -31,9 +32,11 @@
                 for (let [name, value] of dataForm){
                     data[name] = value;
                 }
+
                 $postInput.reset();
-                this.runtime.trigger('formSent', {payload:data});
+                this.runtime.trigger('formSent', data);
             });
+
             $templateDestination.appendChild($postInput);
 
         }

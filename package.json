@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "grapnel": "^0.6.4",
     "mustache": "^2.3.0",
     "super-event-emitter": "^4.1.4"
   }

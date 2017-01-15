@@ -1,0 +1,62 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-material-design.css">
+        <link rel="stylesheet" href="css/ripples.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <article class="container marginTop">
+                <div class="row">
+                    <div class="col-sm-offset-3 col-md-6 col-sm-6 marginTop">
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label" for="drukarkaFeedTytul">Podaj Tytuł</label>
+                            <input type="text" id="drukarkaFeed" class="form-control">
+                            <span class="help-block">Jakiś ładny tytuł?</span>
+                        </div>
+                        <div class="form-group label-floating is-empty">
+                            <label class="control-label" for="drukarkaFeedTytul">Wpisz co drukujemy</label>
+                            <input type="text" id="drukarkaFeedTytul" class="form-control">
+                            <span class="help-block">Wpisz a zostanie Ci wydrukowane</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-offset-3 col-md-6 col-sm-6 marginTop">
+                        <div class="well well-lg" id="drukarkaOutput">
+                            <h1>______</h1><br/>
+                            <p>Waiting...</p>
+                        </div>
+                    </div>
+                </div>
+        </article>
+
+        <!-- <script src="https://unpkg.com/@reactivex/rxjs@5.0.0-beta.12/dist/global/Rx.js"></script> -->
+        <script src="js/vendor/jquery-3.1.1.js"></script>
+        <script src="js/vendor/bootstrap.js"></script>
+        <script src="js/vendor/material.js"></script>
+        <script src="js/vendor/ripples.js"></script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+                $.material.init();
+        </script>
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+
+    </body>
+</html>

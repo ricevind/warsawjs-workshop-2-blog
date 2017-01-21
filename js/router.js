@@ -6,10 +6,18 @@
 (function(){
     window.blog.router = (router, ct) => {
 
-        router.get('/posts', ct.onPostsList.bind(ct));
-        router.get('/posts/:id', ct.onPost.bind(ct));
+        router.get('/posts', (req, e) => {
+            ct.onPostsList.bind(ct);
+            ct.onPostsList(req);
+            e.stopPropagation();
+        });
+        router.get('/posts/:id', (req, e) => {
+            ct.onPost.bind(ct);
+            ct.onPost(req);
+            e.stopPropagation();
+        });
         router.get('/*', (e) => {
-            if (!e.parent()) {
+            if (!e.parent) {
                 router.navigate('/posts');
             }
         });

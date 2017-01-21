@@ -8,7 +8,6 @@
         render (data) {
             let $templateDestination = document.getElementById('postDestination');
             let parser = new DOMParser();
-
             //mustache parse
             let mustachedTemplate = Mustache.render(this.template, data);
             //creating element from mustached template

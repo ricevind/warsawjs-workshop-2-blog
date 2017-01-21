@@ -16,7 +16,7 @@
         }
 
         getPost(id){
-            this._postMap.get(id);
+            return this._postMap.get(id);
         }
 
         listPosts(){

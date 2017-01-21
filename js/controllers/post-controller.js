@@ -9,18 +9,16 @@
 
     class PostController {
         constructor(){
-            this.postList = {};
             //components
             this.postAddComponet = new PostAddFormComponent({});
             //models
-            this.postListModel = new PostListModel();
-            this.postModel = new PostModel();
+            this.postList = new PostListModel();
             runtime.on('formSent', (payload)=>{
-                payload.id = Math.floor(Math.random() * 1000000000);
-                this.postList[payload.id] = payload;
+                let id = Math.floor(Math.random() * 1000000000);
+                let newPost = new PostModel(payload.postTitleInput, payload.postBodyInput);
+                this.postList.addPost(id, newPost);
                 this.onPostsList();
             });
-
         }
 
         onPostsList(){
@@ -28,10 +26,10 @@
             if (!(document.querySelector('#postInputDestination').innerHTML)){
                 this.postAddComponet.render({});
             }
-            for (let post in this.postList) {
-                if (this.postList.hasOwnProperty(post)){
-                    new PostComponent(this.postList[post])
-                }
+            for (let [id,post] of this.postList.listPosts()) {
+                var postDataToRender = {'postTitleInput':post._title, 'postBodyInput':post._body, 'id':id};
+                new PostComponent(postDataToRender);
+
             }
         }
 
@@ -39,7 +37,11 @@
             console.log('onpost')
             PostController._resetView('postDestination');
             PostController._resetView('postInputDestination');
-            new PostComponent(this.postList[req.params.id]);
+            let id = +req.params.id;
+            let post = this.postList.getPost(id);
+            var postDataToRender = {'postTitleInput':post._title, 'postBodyInput':post._body, 'id':id};
+            new PostComponent(postDataToRender);
+
         }
 
         static _resetView(destination){

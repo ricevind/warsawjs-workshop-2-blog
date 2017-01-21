@@ -8,7 +8,7 @@
             this.template = document.getElementById('template-add-form-component').innerHTML;
             this.runtime = window.blog.runtime;
 
-            this.render(data);
+            // this.render(data);
         }
 
         render (data) {
@@ -16,7 +16,6 @@
             let parser = new DOMParser();
 
             //mustache parse
-            // console.log(data)
             let mustachedTemplate = Mustache.render(this.template, data);
 
             //creating element from mustached template

@@ -101,7 +101,10 @@ textarea {
 }
 
 
-
+.postButton {
+    float: right;
+    margin-left: 0;
+}
 
 
 

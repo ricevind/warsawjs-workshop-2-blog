@@ -38,19 +38,48 @@
                 <div class="panel-heading"  id="postTitle">{{postTitleInput}}</div>
                 <div class="panel-body" id="postBody">
                     {{postBodyInput}}
+
+                    <div>
+                        <a  href="#!/posts/{{id}}" class="btn btn-raised btn-info postButton">View Comments</a>
+                    </div>
                 </div>
-                <div>
-                    <a  href="#!/posts/{{id}}"><button class="btn btn-lg btn-info">Post</button></a>
+                <div id="postComments">
+                    <div class="list-group">
+                    <!--{{postCommentsInput}}-->
+                    </div>
+
                 </div>
             </div>
 
         </script>
 
-        <section class="container-fluid ">
+        <script type="text/html" id="templat-postComments-partial">
+                <div class="list-group-item">
+                    <div class="row-picture">
+                        <img class="circle" src="{{commentAvatarSrc}}" alt="icon">
+                    </div>
+                    <div class="row-content">
+                        <h4 class="list-group-item-heading">{{commentAuthor}}</h4>
+
+                        <p class="list-group-item-text">{{commentBody}}</p>
+                    </div>
+                </div>
+                <div class="list-group-separator"></div>
+        </script>
+
+          <nav class="navbar navbar-warning navbar-default">
+              <div class="container">
+                  <ul class="nav navbar-nav navbar-right">
+                      <li class="active"><a href="#!/posts">Lista postów</a></li>
+                      <li class="disabled"><a href="#!/home">Home</a></li>
+
+                  </ul>
+              </div>
+          </nav>
+            <section class="container-fluid">
                 <div class="row">
                     <div class="col-md-2 " >
                             <div id="postInputDestination"></div>
-                        <a href="#!/posts"><button class="btn btn-lg btn-info">Lista postów</button></a>
                     </div>
                     <div class=" col-md-8 marginTop col-lg-push-1 " >
                         <div id="postDestination">sdsd</div>
@@ -69,6 +98,7 @@
         <script src="node_modules/grapnel/dist/grapnel.min.js"></script>
 
         <script src="js/blog.js"></script>
+        <script src="js/router.js"></script>
         <script src="js/components/post-component.js"></script>
         <script src="js/components/post-add-form-component.js"></script>
         <script src="js/models/post-list-model.js"></script>

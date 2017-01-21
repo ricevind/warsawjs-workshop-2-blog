@@ -6,7 +6,7 @@
 
     let runtime = window.blog.runtime;
     let router = window.blog.router;
-    console.log(router)
+
     class PostController {
         constructor(){
             this.postList = {};
@@ -18,25 +18,32 @@
             runtime.on('formSent', (payload)=>{
                 payload.id = Math.floor(Math.random() * 1000000000);
                 this.postList[payload.id] = payload;
-                // router.navigate('/posts');
-                this.onPostListHandler();
+                this.onPostsList();
             });
 
         }
 
-        onPostListHandler(){
-            console.log('onpostListHandler callesd')
-            runtime.trigger('resetList');
-            for (let post in this.postList){
-                console.log(post)
+        onPostsList(){
+            PostController._resetView('postDestination');
+            if (!(document.querySelector('#postInputDestination').innerHTML)){
+                this.postAddComponet.render({});
+            }
+            for (let post in this.postList) {
                 if (this.postList.hasOwnProperty(post)){
                     new PostComponent(this.postList[post])
                 }
             }
         }
 
-        onPostHandler(id){
-            new PostComponent(this.postList[id])
+        onPost(req){
+            console.log('onpost')
+            PostController._resetView('postDestination');
+            PostController._resetView('postInputDestination');
+            new PostComponent(this.postList[req.params.id]);
+        }
+
+        static _resetView(destination){
+            document.querySelector(`#${destination}`).innerHTML='';
         }
     }
 

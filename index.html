@@ -67,6 +67,16 @@
                 <div class="list-group-separator"></div>
         </script>
 
+        <script type="text/html" id="template-CommentsForm-partial">
+            <form id="commentForm">
+                <label for="commentAuthor">Autor</label>
+                <input type="text" name="commentAuthot" id="commentAuthor">
+                <label for="commentBody">Komentarz</label>
+                <input type="text" name="commentBody" id="commentBody">
+                <input class="btn btn-raised btn-primary" type="submit" value="Submit">
+            </form>
+        </script>
+
           <nav class="navbar navbar-warning navbar-default">
               <div class="container">
                   <ul class="nav navbar-nav navbar-right">
@@ -80,6 +90,7 @@
                 <div class="row">
                     <div class="col-md-2 " >
                             <div id="postInputDestination"></div>
+                            <div id="commentFormDestination"></div>
                     </div>
                     <div class=" col-md-8 marginTop col-lg-push-1 " >
                         <div id="postDestination">sdsd</div>
@@ -99,6 +110,7 @@
 
         <script src="js/blog.js"></script>
         <script src="js/router.js"></script>
+        <script src="js/components/comment-form-component.js"></script>
         <script src="js/components/post-component.js"></script>
         <script src="js/components/post-add-form-component.js"></script>
         <script src="js/models/post-list-model.js"></script>

@@ -9,7 +9,7 @@
         router.get('/posts', ct.onPostsList.bind(ct));
         router.get('/posts/:id', ct.onPost.bind(ct));
         router.get('/*', (e) => {
-            if (!e.parent) {
+            if (!e.parent()) {
                 router.navigate('/posts');
             }
         });

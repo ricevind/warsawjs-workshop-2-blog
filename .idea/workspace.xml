@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2a9708e1-c3b0-48ef-a6a0-8f87cf634c53" name="Default" comment="adding styles to links">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/router.js" />
+    <list default="true" id="2a9708e1-c3b0-48ef-a6a0-8f87cf634c53" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/main.css" afterPath="$PROJECT_DIR$/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/blog.js" afterPath="$PROJECT_DIR$/js/blog.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/components/post-add-form-component.js" afterPath="$PROJECT_DIR$/js/components/post-add-form-component.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/controllers/post-controller.js" afterPath="$PROJECT_DIR$/js/controllers/post-controller.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/post-list-model.js" afterPath="$PROJECT_DIR$/js/models/post-list-model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/models/post-model.js" afterPath="$PROJECT_DIR$/js/models/post-model.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/router.js" afterPath="$PROJECT_DIR$/js/router.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -45,8 +37,8 @@
       <file leaf-file-name="router.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/router.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+            <state relative-caret-position="135">
+              <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
               <folding>
                 <element signature="e#1#46#0" expanded="false" />
               </folding>
@@ -396,7 +388,7 @@
       <workItem from="1484472605338" duration="26084000" />
       <workItem from="1484588468173" duration="9752000" />
       <workItem from="1484673121406" duration="11774000" />
-      <workItem from="1484952438385" duration="10101000" />
+      <workItem from="1484952438385" duration="10335000" />
     </task>
     <task id="LOCAL-00001" summary="adding mustache.js">
       <created>1484476027067</created>
@@ -440,11 +432,18 @@
       <option name="project" value="LOCAL" />
       <updated>1484499848171</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added models, comments template --- not running yet">
+      <created>1485021342628</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1485021342628</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57711000" />
+    <option name="totallyTimeSpent" value="57945000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -491,7 +490,8 @@
     <MESSAGE value="post adding, bootstrap materialize" />
     <MESSAGE value="First working list view/post view (very dirty)" />
     <MESSAGE value="adding styles to links" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding styles to links" />
+    <MESSAGE value="Added models, comments template --- not running yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added models, comments template --- not running yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -733,14 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/controllers/post-controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -757,10 +749,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/controllers/post-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="32" lean-forward="false" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/router.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
+        <state relative-caret-position="135">
+          <caret line="11" column="27" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
           <folding>
             <element signature="e#1#46#0" expanded="false" />
           </folding>

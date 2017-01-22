@@ -65,6 +65,8 @@
                 data[key] = value
             }
 
+            formElement.reset();
+
             data.id = this._id;
             return data;
         }

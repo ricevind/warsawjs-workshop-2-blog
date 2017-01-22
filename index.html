@@ -35,7 +35,7 @@
         <script type="text/html" id="template-post-component">
             <div id="post">
             <div class="panel panel-info" >
-                <div class="panel-heading"  id="postTitle">{{postTitleInput}}</div>
+                <div class="panel-heading"  id="postTitle">{{postTitleInput}} <span class="date">{{date}}</span></div>
                 <div class="panel-body" id="postBody">
                     {{postBodyInput}}
 
@@ -44,40 +44,44 @@
                     </div>
                 </div>
             </div>
-                <div id="commentFormDestination"></div>
-                <div id="postComments">
-                    <div class="list-group">
-                    <!--{{postCommentsInput}}-->
+
+                <div >
+                    <div class="list-group" id="postComments">
+
                     </div>
 
                 </div>
+                <div id="commentFormDestination"></div>
             </div>
 
         </script>
 
-        <script type="text/html" id="templat-postComments-partial">
+        <script type="text/html" id="template-comment-component">
+            <div id="comment">
                 <div class="list-group-item">
                     <div class="row-picture">
-                        <img class="circle" src="{{commentAvatarSrc}}" alt="icon">
+                        <img class="circle" src="http://lorempixel.com/100/100/people/" alt="icon">
                     </div>
                     <div class="row-content">
-                        <h4 class="list-group-item-heading">{{commentAuthor}}</h4>
+                        <button type="button" class="close" id="commentDelete" data-commentId="{{id}}">×</button>
+                        <h4 class="list-group-item-heading">{{author}}</h4>
 
-                        <p class="list-group-item-text">{{commentBody}}</p>
+                        <p class="list-group-item-text">{{body}}</p>
                     </div>
                 </div>
                 <div class="list-group-separator"></div>
+            </div>
         </script>
 
         <script type="text/html" id="template-CommentsForm-partial">
             <form id="commentForm">
                 <div class="form-group label-floating is-empty">
                     <label class="control-label" for="commentAuthor">Autor</label>
-                    <input class="form-control" type="text" name="commentAuthot" id="commentAuthor">
+                    <input class="form-control" type="text" name="author" id="commentAuthor">
                 </div>
                 <div class="form-group label-floating is-empty">
                     <label class="control-label" for="commentBody">Komentarz</label>
-                    <input class="form-control" type="text" name="commentBody" id="commentBody">
+                    <input class="form-control" type="text" name="body" id="commentBody">
                 </div>
 
                 <input class="btn btn-raised btn-primary" type="submit" value="Submit">
@@ -120,6 +124,7 @@
         <script src="js/blog.js"></script>
         <script src="js/router.js"></script>
         <script src="js/components/comment-form-component.js"></script>
+        <script src="js/components/comment-component.js"></script>
         <script src="js/components/post-component.js"></script>
         <script src="js/components/post-add-form-component.js"></script>
         <script src="js/models/post-list-model.js"></script>

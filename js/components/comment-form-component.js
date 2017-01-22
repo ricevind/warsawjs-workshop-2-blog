@@ -20,12 +20,11 @@
 
         render(){
             return this.destElemPromise.then((destination)=>{
-                this._destinationElement = destination;
             let domParser = new DOMParser();
 
             let $commentFormDocument = domParser.parseFromString(this.template, 'text/html');
             let $commentForm = $commentFormDocument.querySelector('#commentForm');
-            this._destinationElement.appendChild($commentForm);
+            destination.appendChild($commentForm);
                 return $commentForm;
             });
 

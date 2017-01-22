@@ -1,7 +1,7 @@
 (function() {
 
 
-
+//TODO: Moving event listners out of .render()
 
     class PostAddFormComponent {
         constructor(data) {

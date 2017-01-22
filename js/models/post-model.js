@@ -7,18 +7,19 @@
                 this._title = title;
                 this._body = body;
                 this._author = author || 'not provided';
-                this._date = new Date();
+                let now = new Date();
+                this._date = now.toISOString().substring(0, 10);
                 this._comments = new Map();
             }
         }
 
-        addComment(author, body) {
-            let id = parseInt(Math.random()*1000000000);
-            this._comments.set(id, {'author':author, 'body':body, 'date':new Date()});
+        addComment(id, payload) {
+            let now = new Date();
+            this._comments.set(+id, {'author':payload.author, 'body':payload.body, 'date':now.toISOString().substring(0, 10)});
         }
 
         deleteComment(id){
-            this._comments.delete(id);
+            this._comments.delete(+id);
         }
 
         getComments(){

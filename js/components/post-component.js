@@ -5,7 +5,6 @@
     class PostComponent {
         constructor(data) {
             this.template = document.getElementById('template-post-component').innerHTML;
-            this.commentForm = new commentFormComponent(data.id);
 
             this.render(data);
         }
@@ -22,7 +21,8 @@
             $templateDestination.appendChild($templateElement.getElementById('post'));
 
             if (!(document.querySelector('#postInputDestination').innerHTML)){
-                this.commentForm.render();
+                new commentFormComponent(data.id);
+
             }
         }
     }

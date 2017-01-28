@@ -1,4 +1,7 @@
 (function(){
+
+    let runtime = window.blog.runtime;
+
     class PostModel {
         constructor(title, body, author) {
             if (typeof(arguments[0]) === 'object' ){
@@ -15,11 +18,13 @@
 
         addComment(id, payload) {
             let now = new Date();
-            this._comments.set(+id, {'author':payload.author, 'body':payload.body, 'date':now.toISOString().substring(0, 10)});
+            this._comments.set(id, {'author':payload.author, 'body':payload.body, 'date':now.toISOString().substring(0, 10)});
+            runtime.emit('modelUpdated');
         }
 
         deleteComment(id){
-            this._comments.delete(+id);
+            this._comments.delete(id);
+            runtime.emit('modelUpdated');
         }
 
         getComments(){
@@ -27,17 +32,18 @@
         }
 
         toJSON(){
-            let comments = this.getComments();
-            let commentsToStore = [];
-            for (let comment of comments){
-                commentsToStore.push(comment);
+            let self = this;
+            let comments = self.getComments();
+            let commentsToStore = {};
+            for (let [id,comment] of comments){
+                commentsToStore[id] = comment;
             }
 
             return {
-                'title': this._title,
-                'body': this._body,
-                'author': this._author,
-                'date': this._date,
+                'title': self._title,
+                'body': self._body,
+                'author': self._author,
+                'date': self._date,
                 'comments': commentsToStore
             }
         }
@@ -48,7 +54,15 @@
             this._author = post.author;
             this._date = post.date;
             this._comments = new Map();
-            post.comments.map((entry)=>this._comments.set(...entry));
+            console.log(post.comments)
+            for (let id in post.comments) {
+                if (post.comments.hasOwnProperty(id)) {
+                    console.log(post.comments[id])
+                    let comment = post.comments[id];
+                    this.addComment(id, comment);
+                }
+            }
+            // postsArray.map(([id,post]) => this.addPost(id, new postConstructor(post)));
         }
     }
 

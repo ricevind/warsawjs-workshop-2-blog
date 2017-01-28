@@ -4,15 +4,13 @@
  */
 
 (function(){
-    window.blog.router = (router, ct) => {
+    window.blog.routerInject = (router, ct) => {
 
         router.get('/posts', (req, e) => {
-            ct.onPostsList.bind(ct);
             ct.onPostsList(req);
             e.stopPropagation();
         });
         router.get('/posts/:id', (req, e) => {
-            ct.onPost.bind(ct);
             ct.onPost(req);
             e.stopPropagation();
         });

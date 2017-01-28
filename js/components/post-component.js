@@ -15,7 +15,6 @@
             let $templateDestination = document.getElementById('postDestination');
             let parser = new DOMParser();
             //mustache parse
-            console.log(data);
             let mustachedTemplate = Mustache.render(this.template, data);
             //creating element from mustached template
             let $templateElement = parser.parseFromString(mustachedTemplate, "text/html");

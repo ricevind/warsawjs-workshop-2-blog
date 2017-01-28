@@ -1,18 +1,29 @@
 (function(){
+
+    let runtime = window.blog.runtime;
+    let PostModel = window.blog.models.PostModel;
+    console.log(PostModel)
     class PostListModel {
-        constructor(postsArray) {
+        constructor(posts) {
             this._postMap = new Map();
-            if (postsArray){
+            if (posts !== 'No data could be fetched'){
+                let postsArray = JSON.parse(posts)
+                console.log('model',this)
                 this.fromJSON(postsArray);
+                console.log(this)
+
             }
         }
 
         addPost(id,post){
             this._postMap.set(id, post);
+            console.log(this)
+            runtime.emit('modelUpdated');
         }
 
         deletePost(id){
             this._postMap.delete(id);
+            runtime.emit('modelUpdated');
         }
 
         getPost(id){
@@ -23,15 +34,24 @@
             return this._postMap.entries()
         }
 
-        toJSON(){
-            let postListInString = [];
-            for (let [id, post] of this.listPosts()){
-                postListInString.push([id, post.toJSON()]);
+        toString(){
+            let self = this;
+            let postListInString = {};
+            for (let [id, post] of self.listPosts()){
+                postListInString[id] = JSON.stringify(post);
             }
+
+            return JSON.stringify(postListInString);
         }
 
-        fromJSON(postsArray, postConstructor){
-            postsArray.map(([id,post]) => this.addPost(id, new postConstructor(post)));
+        fromJSON(postsArray) {
+            for (let id in postsArray) {
+                if (postsArray.hasOwnProperty(id)) {
+                    let post = JSON.parse(postsArray[id]);
+                    this.addPost(id, new PostModel(post));
+                }
+            }
+            // postsArray.map(([id,post]) => this.addPost(id, new postConstructor(post)));
         }
     }
 

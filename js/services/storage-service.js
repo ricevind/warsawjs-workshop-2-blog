@@ -21,9 +21,8 @@
         obtain() {
             this.adapter.get()
                 .then((data) => {
-                    console.log('dataFetched');
                     runtime.emit('fetchedData', data);
-                });
+                }, (err) => runtime.emit('fetchedData'), 'NO_DATA');
         }
     }
 

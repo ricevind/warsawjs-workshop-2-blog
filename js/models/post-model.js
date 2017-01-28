@@ -54,10 +54,8 @@
             this._author = post.author;
             this._date = post.date;
             this._comments = new Map();
-            console.log(post.comments)
             for (let id in post.comments) {
                 if (post.comments.hasOwnProperty(id)) {
-                    console.log(post.comments[id])
                     let comment = post.comments[id];
                     this.addComment(id, comment);
                 }

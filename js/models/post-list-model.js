@@ -2,22 +2,18 @@
 
     let runtime = window.blog.runtime;
     let PostModel = window.blog.models.PostModel;
-    console.log(PostModel)
     class PostListModel {
         constructor(posts) {
             this._postMap = new Map();
-            if (posts !== 'No data could be fetched'){
+            if (posts){
                 let postsArray = JSON.parse(posts)
-                console.log('model',this)
                 this.fromJSON(postsArray);
-                console.log(this)
 
             }
         }
 
         addPost(id,post){
             this._postMap.set(id, post);
-            console.log(this)
             runtime.emit('modelUpdated');
         }
 

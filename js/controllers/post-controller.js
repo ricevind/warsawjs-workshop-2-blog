@@ -76,16 +76,19 @@
         init() {
             let self = this;
             self.store.obtain();
-            console.debug('init;')
         }
 
         _onInit(fetchedData) {
-            console.log('init fetched data', fetchedData);
-            // console.log(new PostListModel(fetchedData))
-            this.postList = new PostListModel(fetchedData);
+            if (fetchedData === 'NO_DATA') {
+                this.postList = new PostListModel();
+            } else {
+                this.postList = new PostListModel(fetchedData);
+            }
             this.onPostsList();
             //model storage handling
             runtime.on('modelUpdated', this._onModelUpdated.bind(this));
+            //init router
+            runtime.emit('listModelLoaded');
 
         }
 

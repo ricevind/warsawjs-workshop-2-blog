@@ -7,8 +7,8 @@
         collectionName: 'postsListModel',
         put: (data) => {
             return new Promise((resolve, reject) =>{
-                localStorage.setItem('test', data);
-                if (localStorage.getItem('test')) {
+                localStorage.setItem(this.collectionName, data);
+                if (localStorage.getItem(this.collectionName)) {
                     resolve('data saved');
                 } else {
                     reject('data not present, something went wrong');
@@ -17,7 +17,7 @@
         },
         get: () => {
             return new Promise((resolve, reject) => {
-               let data = localStorage.getItem('test');
+               let data = localStorage.getItem(this.collectionName);
                if (data) {
                    resolve(data);
                } else {

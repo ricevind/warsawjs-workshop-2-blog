@@ -14,12 +14,12 @@
             this.render(commentData);
         }
 
-        render(commentData){
+        render(commentData) {
             let domParser = new DOMParser();
-            let mustachedTemplate = Mustache.render(this._template, commentData)
+            let mustachedTemplate = Mustache.render(this._template, commentData);
             let commentElement = domParser.parseFromString(mustachedTemplate, 'text/html').querySelector('#comment');
 
-            this.destElemPromise.then((destination)=>{
+            this.destElemPromise.then((destination) => {
                 destination.appendChild(commentElement);
             });
 
@@ -27,11 +27,11 @@
         }
 
         _setDestinationElement(){
-            return new Promise((resolve, reject)=>{
+            return new Promise((resolve) => {
                 let setElement = () => {
                     this._destinationElement = document.querySelector('#postComments');
 
-                    if (!(this._destinationElement)){
+                    if (!(this._destinationElement)) {
                         setTimeout(setElement, 10)
                     }
                     else if (this._destinationElement) {
@@ -46,10 +46,13 @@
             let closeButton = commentElement.querySelector('#commentDelete');
 
             let commentId = closeButton.getAttribute('data-commentId');
-            closeButton.addEventListener('click', (e)=>{
+            closeButton.addEventListener('click', (e) => {
                 e.preventDefault();
 
-                let payload = {e:e, commentId:commentId}
+                let payload = {
+                    e:e,
+                    commentId:commentId
+                };
                 runtime.emit('deleteComment', payload);
             })
         }

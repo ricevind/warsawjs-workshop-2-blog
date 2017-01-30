@@ -40,11 +40,12 @@
                 self.postAddComponet.render({});
             }
             for (let [id,post] of self.postList.listPosts()) {
-                let postDataToRender = {'postTitleInput':post._title,
-                                        'postBodyInput':post._body,
-                                        'id':id,
-                                        'date':post._date
-                                        };
+                let postDataToRender = {
+                    'postTitleInput':post._title,
+                    'postBodyInput':post._body,
+                    'id':id,
+                    'date':post._date
+                };
 
                 new PostComponent(postDataToRender);
 
@@ -62,10 +63,11 @@
                 self.router.navigate('/posts');
                 return;
             }
-            let postDataToRender = {'postTitleInput':postModel._title,
-                                    'postBodyInput':postModel._body,
-                                    'id':id, 'date':postModel._date
-                                    };
+            let postDataToRender = {
+                'postTitleInput':postModel._title,
+                'postBodyInput':postModel._body,
+                'id':id, 'date':postModel._date
+            };
 
             let postElement = new PostComponent(postDataToRender);
             postElement.renderComments(postModel.getComments());
@@ -123,7 +125,7 @@
             } else {
                 let elem = document.querySelector(`#${destination}`);
                 if (elem) {
-                    elem.innerHTML = ""
+                    elem.innerHTML = "";
                 }
             }
         }

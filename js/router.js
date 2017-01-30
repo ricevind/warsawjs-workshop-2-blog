@@ -10,10 +10,12 @@
             ct.onPostsList(req);
             e.stopPropagation();
         });
+
         router.get('/posts/:id', (req, e) => {
             ct.onPost(req);
             e.stopPropagation();
         });
+
         router.get('/*', (e) => {
             if (!e.parent) {
                 router.navigate('/posts');

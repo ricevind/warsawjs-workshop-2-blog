@@ -24,7 +24,7 @@
             //appending element to DOM
             let $postInput = $templateElement.getElementById('postInput');
 
-            $postInput.addEventListener('submit', (e)=> {
+            $postInput.addEventListener('submit', (e) => {
                 e.preventDefault();
                 let dataForm = new FormData($postInput);
                 let data = {};

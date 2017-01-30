@@ -1,7 +1,7 @@
 /**
  * Created by ricevind on 21.01.17.
  */
-(function (window) {
+(function () {
     let runtime = window.blog.runtime;
 
     class CommentFormComponent {
@@ -19,7 +19,7 @@
         }
 
         render(){
-            return this.destElemPromise.then((destination)=>{
+            return this.destElemPromise.then((destination) => {
             let domParser = new DOMParser();
 
             let $commentFormDocument = domParser.parseFromString(this.template, 'text/html');
@@ -31,7 +31,7 @@
         }
 
         _setDestinationElement(){
-            return new Promise((resolve, reject)=>{
+            return new Promise((resolve, reject) => {
                 let setElement = () => {
                     this._destinationElement = document.querySelector('#commentFormDestination');
 
@@ -47,7 +47,7 @@
         }
 
         _setEventListeners(element){
-            element.addEventListener('submit', (e)=>{
+            element.addEventListener('submit', (e) => {
                 e.preventDefault();
 
                 let data = this._getFormData(element);
@@ -72,4 +72,5 @@
     }
 
     window.blog.components.CommentFormComponent = CommentFormComponent;
-})(window);
+
+})();

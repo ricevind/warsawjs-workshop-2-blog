@@ -18,7 +18,11 @@
 
         addComment(id, payload) {
             let now = new Date();
-            this._comments.set(id, {'author':payload.author, 'body':payload.body, 'date':now.toISOString().substring(0, 10)});
+            this._comments.set(id, {
+                'author':payload.author,
+                'body':payload.body,
+                'date':now.toISOString().substring(0, 10)
+            });
             runtime.emit('modelUpdated');
         }
 
@@ -32,20 +36,20 @@
         }
 
         toJSON(){
-            let self = this;
-            let comments = self.getComments();
+            // let self = this;
+            let comments = this.getComments();
             let commentsToStore = {};
             for (let [id,comment] of comments){
                 commentsToStore[id] = comment;
             }
 
             return {
-                'title': self._title,
-                'body': self._body,
-                'author': self._author,
-                'date': self._date,
+                'title': this._title,
+                'body': this._body,
+                'author': this._author,
+                'date': this._date,
                 'comments': commentsToStore
-            }
+            };
         }
 
         fromJSON(post){
